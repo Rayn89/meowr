@@ -1,5 +1,12 @@
 .footer-bar {
     width: 100%;
-    background: black;
-    height: 20px;
+    background: rgb(74, 74, 74);
+    height: 10vh;
+}
+
+.footer-header {
+    /* background: black; */
+    width: 100%;
+    height: 100%;
+    color: white;
 }

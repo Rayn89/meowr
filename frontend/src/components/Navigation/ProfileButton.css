@@ -1,0 +1,17 @@
+
+.profile-dropdown {
+    list-style-type: none;
+    padding-left: 0;
+    /* position: absolute; */
+}
+
+.profileopen-button {
+    margin-right: 10px;
+}
+
+.loggedin-buttons {
+    z-index: 1;
+    display:block;
+    flex-direction: column;
+    height: auto;
+}

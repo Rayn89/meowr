@@ -24,8 +24,9 @@ function LoginFormPage() {
     );
   };
 
+
   return (
-    <div className="form-container">
+    <div className="loginform-container">
       <div className="inner-container">
         <h2 className="login-header">Please Log-in</h2>
         <form onSubmit={handleSubmit} className="form-style">
