@@ -6,8 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 2rem;
-    margin-top: 5rem;
+    height: 90vh;
+    /* margin-top: 5rem; */
 }
 
 .form-style {
@@ -42,7 +42,7 @@
 
 .login-button {
     width: 75%;
-    background:rgba(45, 45, 160, 0.509)
+    background:rgba(45, 45, 160, 0.509);
 }
 
 .login-button:hover {

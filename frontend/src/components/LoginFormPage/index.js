@@ -26,35 +26,39 @@ function LoginFormPage() {
 
   return (
     <div className="form-container">
-      <h2 className="login-header">Please Log-in</h2>
-      <form onSubmit={handleSubmit} className="form-style">
-        <ul className="error-list">
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label className="form-labels">
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-            className="form-input"
-          />
-        </label>
-        <label className="form-labels">
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="form-input"
-          />
-        </label>
-        <button className='login-button' type="submit">Log In</button>
-      </form>
+      <div className="inner-container">
+        <h2 className="login-header">Please Log-in</h2>
+        <form onSubmit={handleSubmit} className="form-style">
+          <ul className="error-list">
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <label className="form-labels">
+            Username or Email
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+              className="form-input"
+            />
+          </label>
+          <label className="form-labels">
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="form-input"
+            />
+          </label>
+          <button className="login-button" type="submit">
+            Log In
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
