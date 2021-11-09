@@ -12,8 +12,9 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [credential, setCredential] = useState('')
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/images" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();

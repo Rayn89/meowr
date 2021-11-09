@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/images" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,6 +58,7 @@ function LoginFormPage() {
           <button className="login-button" type="submit">
             Log In
           </button>
+          <button className="login-button" onClick={() => {setCredential('Demo-lition'); setPassword('password');}}>Demo User</button>
         </form>
       </div>
     </div>

@@ -30,6 +30,9 @@ function Navigation({ isLoaded }) {
           <NavLink exact to="/" className="nav-bar-li homepage-button">
             Meowr
           </NavLink>
+          <NavLink to="/images">
+            Cats
+          </NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>
