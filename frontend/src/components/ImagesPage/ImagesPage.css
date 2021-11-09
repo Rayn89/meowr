@@ -1,0 +1,28 @@
+
+.img-wrapper {
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ /* margin-top: 100px; */
+}
+
+.img-wrapper > div {
+ flex: 0 1 33%;
+}
+
+.image-square {
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.imagepage-container {
+    height: 90vh;
+}
+
+.innerimage-container {
+    border: 1px solid black;
+    margin-top: 100px;
+}
