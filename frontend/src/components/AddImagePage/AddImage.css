@@ -1,0 +1,12 @@
+.add-image-container {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+}
+
+.add-image-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}

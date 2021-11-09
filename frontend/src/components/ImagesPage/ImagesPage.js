@@ -7,13 +7,19 @@ import "./ImagesPage.css"
 
 function DisplayImages() {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
     const imagesObj = useSelector((state) => state.images);
     const images = Object.values(imagesObj)
 
   useEffect(() => {
     dispatch(getImages());
   }, [dispatch]);
+
+  let content=null;
+
+    if (sessionUser) {
+        content = <NavLink to="/addimage">Add Image</NavLink>
+    }
 
   return (
     <div className="imagepage-container">
@@ -31,6 +37,7 @@ function DisplayImages() {
           </NavLink>
         ))}
       </div>
+      {content}
     </div>
   );
 }
