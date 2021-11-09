@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage"
 import FooterPage from "./components/FooterPage";
 import ImagesPage from "./components/ImagesPage/ImagesPage"
+import AddImageForm from './components/AddImagePage'
+import ImageDetails from "./components/ImageDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,8 +32,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/images">
+          <Route exact path="/images">
             <ImagesPage />
+          </Route>
+          <Route path="/addimage">
+            <AddImageForm />
+          </Route>
+          <Route path="/images/:id">
+            <ImageDetails />
           </Route>
         </Switch>
       )}

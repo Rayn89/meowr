@@ -9,7 +9,7 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth")
 
-const userId = check("id").notEmpty().isInt({ min: 0 });
+const userId = check("userId").notEmpty().isInt({ min: 0 });
 const albumId = check("albumId").notEmpty().isInt({ min: 0 });
 const imageUrl = check("imageUrl")
   .notEmpty()
@@ -56,37 +56,48 @@ router.get(
 router.get(
   "/:id",
   asyncHandler(async function (req, res) {
+    console.log("BIG STRINGGGGG", req.params.id)
     const image = await Image.findByPk(req.params.id);
     return res.json(image);
   })
 );
 
 router.post(
-  "/addimage", requireAuth, validateCreate,
+  "/addimage", 
+  requireAuth, 
+  validateCreate,
   asyncHandler(async function (req, res) {
     const id = await Image.create(req.body);
-    return res.redirect(`${req.baseUrl}/${id}`);
+    return res.json(id);
   })
 );
 
+
 router.put(
   "/:id",
-  validateUpdate,
-  requireAuth,
+//   validateUpdate,
+  //   requireAuth,
   asyncHandler(async function (req, res) {
-    const imageId = parseInt(req.params.id, 10);
-    const image = await Image.findByPk(imageId);
+//     const id = await Image.update(req.body);
+//     const image = await Image.one(id);
+    
 
-    const { albumId, imageUrl, content } = req.body;
+//     return res.json(image);
+//   })
+      const imageId = parseInt(req.params.id, 10);
+      const image = await Image.findByPk(imageId);
 
-    const updatedImage = {
-      albumId,
-      imageUrl,
-      content,
-    };
-    await image.update(updatedImage);
-    return res.json(image);
-  })
+      const { userId, albumId, imageUrl, content } = req.body;
+
+      const updatedImage = {
+        userId,
+        albumId,
+        imageUrl,
+        content,
+      };
+      await image.update(updatedImage);
+      return res.json(image);
+    })
 );
 
 router.delete(

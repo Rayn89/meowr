@@ -20,7 +20,7 @@ export const getImages = () => async (dispatch) => {
 };
 
 export const addImage = (image) => async (dispatch) => {
-  const response = await fetch("/api/images", {
+  const response = await fetch("/api/images/addimage", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(image),
@@ -28,7 +28,34 @@ export const addImage = (image) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(addOneImage(data.image));
+    dispatch(addOneImage(data));
+    return data;
+  }
+};
+
+export const getOneImage = (id) => async (dispatch) => {
+  const response = await fetch(`/api/images/${id}`);
+
+  if (response.ok) {
+    const image = await response.json();
+    dispatch(addOneImage(image));
+  }
+};
+
+export const updateImage = (data) => async (dispatch) => {
+  const response = await fetch(`/api/images/${data.id}`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const image = await response.json();
+    dispatch(addOneImage(image));
+    console.log(image)
+    return image;
   }
 };
 
