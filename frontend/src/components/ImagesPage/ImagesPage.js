@@ -25,7 +25,7 @@ function DisplayImages() {
     <div className="imagepage-container">
       <div className="img-wrapper">
         {images.map((image) => (
-          <NavLink key={image.id} to={`/images/${image.id}`}>
+          <NavLink className="display-images" key={image.id} to={`/images/${image.id}`}>
             <div>
               <img
                 className="image-square"

@@ -1,20 +1,12 @@
-// import React, { useState } from "react";
-// import * as sessionActions from "../../store/session";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './HomePage.css'
 import { NavLink } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
 
 function HomePage() {
-  // const dispatch = useDispatch();
-  // const sessionUser = useSelector((state) => state.session.user);
-  // const [credential, setCredential] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [errors, setErrors] = useState([]);
+  const sessionUser = useSelector((state) => state.session.user);
 
-  // if (sessionUser) return <Redirect to="/" />;
-
+  if (sessionUser) return <Redirect to="/images" />;
 
   return (
     <div className="homepage-container">

@@ -1,5 +1,6 @@
 export const LOAD_IMAGES = "images/loadImages";
 export const ADD_ONE_IMAGE = "images/addOneImage"
+export const REMOVE_IMAGE = "items/REMOVE_IMAGE";
 
 const load = (images) => ({
   type: LOAD_IMAGES,
@@ -12,6 +13,11 @@ const addOneImage = (payload) => {
     payload,
   };
 };
+
+const remove = (id) => ({
+  type: REMOVE_IMAGE,
+  payload: id
+});
 
 export const getImages = () => async (dispatch) => {
   const response = await fetch(`/api/images`);
@@ -59,6 +65,17 @@ export const updateImage = (data) => async (dispatch) => {
   }
 };
 
+export const deleteImage = (id) => async (dispatch) => {
+  const response = await fetch(`/api/images/${id}`, {
+    method: "delete",
+  });
+
+  if (response.ok) {
+    // const image = await response.json();
+    dispatch(remove(id));
+  }
+};
+
 const initialState = {};
 
 const imagesReducer = (state = initialState, action) => {
@@ -74,6 +91,11 @@ const imagesReducer = (state = initialState, action) => {
     case ADD_ONE_IMAGE:
       newState = { ...state, [action.payload.id]: action.payload };
       return newState;
+    case REMOVE_IMAGE: {
+      const newState = { ...state };
+      delete newState[action.payload];
+      return newState;
+    }
     default:
       return state;
   }
