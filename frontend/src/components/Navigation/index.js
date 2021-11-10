@@ -7,9 +7,13 @@ import "./Navigation.css";
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
+
+  let content;
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = <ProfileButton user={sessionUser} />;
+    content= <p>{sessionUser.username}</p>
+    
   } else {
     sessionLinks = (
       <div className="login-signup">
@@ -27,12 +31,15 @@ function Navigation({ isLoaded }) {
     <div className="nav-bar-container">
       <ul className="nav-bar-ul">
         <li className="nav-bar-li">
-          <NavLink exact to="/" className="nav-bar-li homepage-button">
-            Meowr
-          </NavLink>
-          <NavLink to="/images">
-            Cats
-          </NavLink>
+          <div className="meow-cats">
+            <NavLink exact to="/" className="nav-bar-li homepage-button">
+              Meowr
+            </NavLink>
+            <NavLink to="/images" className="cat-images-link">
+              Cats
+            </NavLink>
+          </div>
+          {content}
           {isLoaded && sessionLinks}
         </li>
       </ul>

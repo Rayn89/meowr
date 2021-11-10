@@ -18,26 +18,36 @@ function DisplayImages() {
   let content=null;
 
     if (sessionUser) {
-        content = <NavLink to="/addimage">Add Image</NavLink>
+        content = <NavLink to="/addimage" className="add-image-button">Add Image</NavLink>
     }
 
   return (
     <div className="imagepage-container">
+      <div className="button-add">{content}</div>
       <div className="img-wrapper">
         {images.map((image) => (
-          <NavLink className="display-images" key={image.id} to={`/images/${image.id}`}>
-            <div>
-              <img
-                className="image-square"
-                key={image.id}
-                src={image.imageUrl}
-                alt=""
-              />
-            </div>
-          </NavLink>
+          <div className="main-image-box" key={image.id}>
+            <NavLink
+              className="display-images"
+              key={image.id}
+              to={`/images/${image.id}`}
+            >
+              <div>
+                <img
+                  className="image-square"
+                  key={image.id}
+                  src={image.imageUrl}
+                  alt=""
+                />
+                <div className="image-content">
+                  <p>{image.content}</p>
+                </div>
+              </div>
+            </NavLink>
+            <p>post by: {image.User?.username}</p>
+          </div>
         ))}
       </div>
-      {content}
     </div>
   );
 }

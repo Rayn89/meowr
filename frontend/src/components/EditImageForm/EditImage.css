@@ -1,9 +1,16 @@
 .edit-image-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .edit-image-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.edit-labels {
+    display: flex;
+    align-items: center;
 }

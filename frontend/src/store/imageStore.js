@@ -1,5 +1,7 @@
+import { csrfFetch } from "./csrf";
+
 export const LOAD_IMAGES = "images/loadImages";
-export const ADD_ONE_IMAGE = "images/addOneImage"
+export const ADD_ONE_IMAGE = "images/addOneImage";
 export const REMOVE_IMAGE = "items/REMOVE_IMAGE";
 
 const load = (images) => ({
@@ -16,17 +18,17 @@ const addOneImage = (payload) => {
 
 const remove = (id) => ({
   type: REMOVE_IMAGE,
-  payload: id
+  payload: id,
 });
 
 export const getImages = () => async (dispatch) => {
-  const response = await fetch(`/api/images`);
+  const response = await csrfFetch(`/api/images`);
   const images = await response.json();
   dispatch(load(images));
 };
 
 export const addImage = (image) => async (dispatch) => {
-  const response = await fetch("/api/images/addimage", {
+  const response = await csrfFetch("/api/images/addimage", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(image),
@@ -40,7 +42,7 @@ export const addImage = (image) => async (dispatch) => {
 };
 
 export const getOneImage = (id) => async (dispatch) => {
-  const response = await fetch(`/api/images/${id}`);
+  const response = await csrfFetch(`/api/images/${id}`);
 
   if (response.ok) {
     const image = await response.json();
@@ -49,7 +51,7 @@ export const getOneImage = (id) => async (dispatch) => {
 };
 
 export const updateImage = (data) => async (dispatch) => {
-  const response = await fetch(`/api/images/${data.id}`, {
+  const response = await csrfFetch(`/api/images/${data.id}`, {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -60,13 +62,13 @@ export const updateImage = (data) => async (dispatch) => {
   if (response.ok) {
     const image = await response.json();
     dispatch(addOneImage(image));
-    console.log(image)
+    console.log(image);
     return image;
   }
 };
 
 export const deleteImage = (id) => async (dispatch) => {
-  const response = await fetch(`/api/images/${id}`, {
+  const response = await csrfFetch(`/api/images/${id}`, {
     method: "delete",
   });
 
@@ -79,7 +81,7 @@ export const deleteImage = (id) => async (dispatch) => {
 const initialState = {};
 
 const imagesReducer = (state = initialState, action) => {
-    let newState={}
+  let newState = {};
   switch (action.type) {
     case LOAD_IMAGES: {
       const newState = { ...state };
