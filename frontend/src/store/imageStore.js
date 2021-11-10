@@ -62,7 +62,6 @@ export const updateImage = (data) => async (dispatch) => {
   if (response.ok) {
     const image = await response.json();
     dispatch(addOneImage(image));
-    console.log(image);
     return image;
   }
 };

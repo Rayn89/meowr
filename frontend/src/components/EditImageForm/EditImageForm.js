@@ -8,7 +8,6 @@ const EditImageForm = ({image}) => {
   const sessionUser = useSelector((state) => state.session.user.id);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(image.id)
 
   const [content, setContent] = useState("");
   const [albumId, setAlbumId] = useState(1);
@@ -38,7 +37,6 @@ const EditImageForm = ({image}) => {
       albumId,
     };
     dispatch(updateImage(payload));
-    console.log(image.id, sessionUser.id, albumId)
     history.push(`/images`);
   };
 
