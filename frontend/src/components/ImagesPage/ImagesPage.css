@@ -6,11 +6,12 @@
  /* margin-top: 100px; */
 }
 
-.img-wrapper > div {
+/* .dislay-images > div {
  flex: 0 1 33%;
-}
+} */
 
 .image-square {
+
     height: 200px;
     width: 200px;
     margin: 5px;
@@ -25,4 +26,11 @@
 .innerimage-container {
     border: 1px solid black;
     margin-top: 100px;
+}
+
+.display-images {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

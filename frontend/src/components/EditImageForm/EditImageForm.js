@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateImage } from "../../store/imageStore";
 import { useHistory } from "react-router-dom";
-// import "./AddImage.css";
+import "./EditImage.css";
 
 const EditImageForm = ({image}) => {
   const sessionUser = useSelector((state) => state.session.user.id);
@@ -48,20 +48,23 @@ const EditImageForm = ({image}) => {
   };
 
   return (
-    <section className="add-image-container">
-      <form className="add-image-form" onSubmit={handleSubmit}>
+    <section className="edit-image-container">
+      <form className="edit-image-form" onSubmit={handleSubmit}>
+        <label>Image Name</label>
         <input
           type="text"
           placeholder="Name"
           value={content}
           onChange={updateContent}
         />
+        <label>Image URL</label>
         <input
           type="text"
           placeholder="Image URL"
           value={imageUrl}
           onChange={updateImageUrl}
         />
+        <label>Album Number</label>
         <input
           type="number"
           placeholder="Album"
@@ -73,7 +76,7 @@ const EditImageForm = ({image}) => {
             <option key={type}>{type}</option>
           ))}
         </select> */}
-        <button type="submit">Add Image</button>
+        <button type="submit">Edit Image</button>
         <button type="button" onClick={handleCancelClick}>
           Cancel
         </button>

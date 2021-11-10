@@ -1,0 +1,9 @@
+.edit-image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-image-form {
+    display: flex;
+    flex-direction: column;
+}

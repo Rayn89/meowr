@@ -16,6 +16,14 @@ const imageUrl = check("imageUrl")
   .isURL({ require_protocol: false, require_host: false });
 const content = check("content").notEmpty();
 
+const imageNotFoundError = (id) => {
+  const err = Error("Image not found");
+  err.errors = [`Image with id of ${id} could not be found.`];
+  err.title = "Image not found.";
+  err.status = 404;
+  return err;
+};
+
 const validateCreate = [
     userId,
     albumId,
@@ -75,15 +83,10 @@ router.post(
 
 router.put(
   "/:id",
-//   validateUpdate,
-  //   requireAuth,
+  validateUpdate,
+    requireAuth,
   asyncHandler(async function (req, res) {
-//     const id = await Image.update(req.body);
-//     const image = await Image.one(id);
-    
 
-//     return res.json(image);
-//   })
       const imageId = parseInt(req.params.id, 10);
       const image = await Image.findByPk(imageId);
 
@@ -102,44 +105,20 @@ router.put(
 
 router.delete(
   "/:id",
-  requireAuth,
-  asyncHandler(async (req, res) => {
+//   requireAuth,
+  asyncHandler(async (req, res, next) => {
     const imageId = parseInt(req.params.id, 10);
     const image = await Image.findByPk(imageId);
 
-    if (!image) {
-      const err = new Error("Not Found");
-      err.status = 404;
-      throw err;
+    if (image) {
+      await image.destroy();
+      res.status(204).end()
+    }else{
+        next(imageNotFoundError(req.params.id))
     }
-    // if (res.locals.user.id !== image.userId) {
-    //   const err = new Error("Not Authorized");
-    //   err.status = 401;
-    //   throw err;
-    // }
 
-    // const answers = await db.Answer.findAll({
-    //   where: { questionId },
-    // });
-
-    // let answerIds = answers.map((answer) => {
-    //   return answer.dataValues.id;
-    // });
-
-    // await db.Vote.destroy({
-    //   where: {
-    //     answerId: answerIds,
-    //   },
-    // });
-
-    // await db.Answer.destroy({
-    //   where: {
-    //     questionId,
-    //   },
-    // });
-
-    await image.destroy();
-    res.redirect("/images");
+    // await image.destroy();
+    // res.redirect("/images");
   })
 );
 
