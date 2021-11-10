@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { Image } = require("../../db/models");
-// const db = require("../../db/models");
+const db = require("../../db/models");
 
 const router = express.Router();
 
@@ -43,7 +43,9 @@ const validateUpdate = [
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const images = await Image.findAll();
+    const images = await Image.findAll(
+        {include:db.User}
+        );
     res.json(images)
   })
 );
@@ -63,10 +65,13 @@ router.get(
 
 router.get(
   "/:id",
-  asyncHandler(async function (req, res) {
-    console.log("BIG STRINGGGGG", req.params.id)
-    const image = await Image.findByPk(req.params.id);
+  asyncHandler(async function (req, res, next) {
+    const image = await Image.findByPk(req.params.id, {include:db.User, required: true});
+    if(image){
     return res.json(image);
+    }else{
+    next(imageNotFoundError(req.params.id))
+    }
   })
 );
 
@@ -75,7 +80,7 @@ router.post(
   requireAuth, 
   validateCreate,
   asyncHandler(async function (req, res) {
-    const id = await Image.create(req.body);
+    const id = await Image.create(req.body, {include:db.User, required: true});
     return res.json(id);
   })
 );
@@ -105,7 +110,7 @@ router.put(
 
 router.delete(
   "/:id",
-//   requireAuth,
+  requireAuth,
   asyncHandler(async (req, res, next) => {
     const imageId = parseInt(req.params.id, 10);
     const image = await Image.findByPk(imageId);

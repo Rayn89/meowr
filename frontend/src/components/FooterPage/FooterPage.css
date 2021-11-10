@@ -1,7 +1,13 @@
 .footer-bar {
+    /* display: flex; */
     width: 100%;
     background: rgb(74, 74, 74);
-    height: 10vh;
+    height: 50px;
+    margin-top: -50px;
+    /* left: 0; */
+    bottom: 0;
+    position: relative;
+    
 }
 
 .footer-header {

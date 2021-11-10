@@ -12,10 +12,10 @@ const EditImageForm = ({image}) => {
 
   const [content, setContent] = useState("");
   const [albumId, setAlbumId] = useState(1);
-  const [imageUrl, setImageUrl] = useState("");
+//   const [imageUrl, setImageUrl] = useState("");
 
   const updateContent = (e) => setContent(e.target.value);
-  const updateImageUrl = (e) => setImageUrl(e.target.value);
+//   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateAlbum = (e) => setAlbumId(e.target.value);
 
   //   useEffect(() => {
@@ -34,7 +34,7 @@ const EditImageForm = ({image}) => {
       id: image.id,
       userId: sessionUser,
       content,
-      imageUrl,
+      imageUrl: image.imageUrl,
       albumId,
     };
     dispatch(updateImage(payload));
@@ -57,14 +57,14 @@ const EditImageForm = ({image}) => {
           value={content}
           onChange={updateContent}
         />
-        <label>Image URL</label>
+        {/* <label>Image URL</label>
         <input
           type="text"
           placeholder="Image URL"
           value={imageUrl}
           onChange={updateImageUrl}
-        />
-        <label>Album Number</label>
+        /> */}
+        <label className="edit-labels">Album Number</label>
         <input
           type="number"
           placeholder="Album"
