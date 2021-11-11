@@ -15,11 +15,10 @@ const ImageDetails = () => {
   const images = useSelector((state) => state.images);
   const sessionUser = useSelector((state) => state.session.user)
   const dispatch = useDispatch();
-  // const [showEditImageForm, setShowEditImageForm] = useState(false);
+
   const handleDelete = (id) => {
     dispatch(deleteImage(id));
   };
-  
 
   let content = null;
   let deletebutton = null;
