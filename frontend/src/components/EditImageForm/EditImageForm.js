@@ -47,6 +47,7 @@ const handleSubmit = async (e) => {
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        <h3>Edit your image</h3>
         <label>Image Name</label>
         <input
           type="text"

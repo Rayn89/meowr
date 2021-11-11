@@ -2,7 +2,14 @@
 .profile-dropdown {
     list-style-type: none;
     padding-left: 0;
-    /* position: absolute; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.201);
 }
 
 .profileopen-button {
@@ -14,4 +21,5 @@
     display:block;
     flex-direction: column;
     height: auto;
+    /* position: relative; */
 }
