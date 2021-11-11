@@ -79,3 +79,12 @@
 .meow-cats {
     display: flex;
 }
+
+.user-name {
+    display: flex;
+    position: relative;
+}
+
+.user-name-name {
+    margin-right: 10px;
+}

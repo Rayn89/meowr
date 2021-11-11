@@ -12,7 +12,7 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = <ProfileButton user={sessionUser} />;
-    content= <p>{sessionUser.username}</p>
+    content= <p className="user-name-name">{sessionUser.username}</p>
     
   } else {
     sessionLinks = (
@@ -39,8 +39,10 @@ function Navigation({ isLoaded }) {
               Cats
             </NavLink>
           </div>
-          {content}
-          {isLoaded && sessionLinks}
+          <div className="user-name">
+            {content}
+            {isLoaded && sessionLinks}
+          </div>
         </li>
       </ul>
     </div>

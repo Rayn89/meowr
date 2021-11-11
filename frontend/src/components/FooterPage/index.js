@@ -1,5 +1,5 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import "./FooterPage.css"
 
@@ -9,7 +9,25 @@ function Footer() {
 
   return (
     <div className="footer-bar">
-        <h2 className="footer-header">Footer</h2>
+      <div className="profile">
+        <p className="name">Ray Nehring</p>
+        <Link className="links"
+          to={{
+            pathname: "https://github.com/Rayn89",
+          }}
+          target="_blank"
+        >
+          GitHub
+        </Link>
+        <Link className="links"
+          to={{
+            pathname: "https://www.linkedin.com/in/raymond-nehring-553ba2206/",
+          }}
+          target="_blank"
+        >
+          LinkedIn
+        </Link>
+      </div>
     </div>
   );
 }

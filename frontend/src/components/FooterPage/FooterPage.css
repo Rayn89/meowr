@@ -2,7 +2,7 @@
     /* display: flex; */
     width: 100%;
     background: rgb(74, 74, 74);
-    height: 50px;
+    height: 60px;
     margin-top: -50px;
     /* left: 0; */
     bottom: 0;
@@ -15,4 +15,19 @@
     width: 100%;
     height: 100%;
     color: white;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+    color: white;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
 }
