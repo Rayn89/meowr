@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addImage } from "../../store/imageStore";
 import { useHistory } from "react-router-dom";
-// import { Redirect } from "react-router-dom";
+import isURL from "validator/lib/isURL";
 import "./AddImage.css"
 
 const AddImageForm = () => {
@@ -20,22 +20,29 @@ const AddImageForm = () => {
   const updateAlbum = (e) => setAlbumId(e.target.value);
 
 
+  useEffect(() => {
+    let newerrors = [];
+    if (content.length < 1) {
+      newerrors.push("Please enter a valid Title");
+    }
+    if (!isURL(imageUrl)) {
+      newerrors.push("Please enter a valid Image URL");
+    }
+
+    setErrors(newerrors);
+  }, [content, imageUrl])
+
 const handleSubmit = async (e) => {
   e.preventDefault();
-
-  setErrors([]);
-  const updated = await dispatch(addImage({ userId:sessionUser, content, imageUrl, albumId })).catch(
-    async (res) => {
-      const data = await res.json();
-      if (data.errors){
-        setErrors(data.errors);
-      }
+    
+    if(errors.length === 0){
+        const updated = await dispatch(
+          addImage({ userId: sessionUser, content, imageUrl, albumId })
+        );
+        if(updated) history.push('/images')
+        }
     }
-  );
-  if(updated) {
-      history.push('/images')
-  }
-};
+
 
   const handleCancelClick = (e) => {
     e.preventDefault();
@@ -55,7 +62,6 @@ const handleSubmit = async (e) => {
           type="text"
           placeholder="Name"
           value={content}
-        //   required
           onChange={updateContent}
         />
         <label>Image Url</label>
@@ -63,7 +69,6 @@ const handleSubmit = async (e) => {
           type="text"
           placeholder="Image URL"
           value={imageUrl}
-        //   required
           onChange={updateImageUrl}
         />
         <label>Album Number</label>

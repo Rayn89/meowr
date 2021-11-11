@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateImage } from "../../store/imageStore";
 import { useHistory } from "react-router-dom";
@@ -17,22 +17,26 @@ const EditImageForm = ({image}) => {
   const updateAlbum = (e) => setAlbumId(e.target.value);
 
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  setErrors([]);
-  const updated = await dispatch(
-    updateImage({ userId: sessionUser, id: image.id, content, albumId })
-  ).catch(async (res) => {
-    const data = await res.json();
-    if (data.errors) {
-      setErrors(data.errors);
+  useEffect(() => {
+    let newerrors = [];
+    if (content.length < 1) {
+      newerrors.push("Please enter a valid Title");
     }
-  });
-  if (updated) {
-    history.push("/images");
-  }
-};
+
+
+    setErrors(newerrors);
+  }, [content]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (errors.length === 0) {
+      const updated = await dispatch(
+        updateImage({ userId: sessionUser, id: image.id, content, albumId })
+      );
+      if (updated) history.push("/images");
+    }
+  };
 
   const handleCancelClick = (e) => {
     e.preventDefault();

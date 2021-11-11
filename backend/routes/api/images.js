@@ -4,6 +4,7 @@ const { Image } = require("../../db/models");
 const db = require("../../db/models");
 
 const router = express.Router();
+const { setTokenCookie, restoreUser } = require("../../utils/auth");
 
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
@@ -77,7 +78,7 @@ router.post(
 router.put(
   "/:id",
   validateUpdate,
-    requireAuth,
+  requireAuth,
   asyncHandler(async function (req, res) {
 
       const imageId = parseInt(req.params.id, 10);
@@ -91,7 +92,8 @@ router.put(
         imageUrl,
         content,
       };
-      await image.update(updatedImage);
+
+      const newImage = await image.update(updatedImage);
       return res.json(image);
     })
 );

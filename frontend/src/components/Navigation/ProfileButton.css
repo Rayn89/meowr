@@ -5,7 +5,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 0;
+    right: 0;
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
