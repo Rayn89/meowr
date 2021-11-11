@@ -6,7 +6,7 @@ return queryInterface.bulkInsert(
   "Images",
   [
     {
-      content: "How do I roast beef?",
+      content: "fatcat",
       imageUrl:
         "https://res.cloudinary.com/deaekdi5y/image/upload/v1636393179/photo-1548247416-ec66f4900b2e_eqk3ka.jpg",
       albumId: 1,
@@ -15,7 +15,7 @@ return queryInterface.bulkInsert(
       updatedAt: new Date(),
     },
     {
-      content: "How do I roast beef?",
+      content: "Tester",
       imageUrl:
         "https://res.cloudinary.com/deaekdi5y/image/upload/v1636393179/photo-1548247416-ec66f4900b2e_eqk3ka.jpg",
       albumId: 1,
@@ -24,7 +24,7 @@ return queryInterface.bulkInsert(
       updatedAt: new Date(),
     },
     {
-      content: "How do I roast beef?",
+      content: "greyyy",
       imageUrl:
         "https://res.cloudinary.com/deaekdi5y/image/upload/v1636393179/photo-1548247416-ec66f4900b2e_eqk3ka.jpg",
       albumId: 1,
@@ -33,7 +33,7 @@ return queryInterface.bulkInsert(
       updatedAt: new Date(),
     },
     {
-      content: "How do I roast beef?",
+      content: "Big cat",
       imageUrl:
         "https://res.cloudinary.com/deaekdi5y/image/upload/v1636393179/photo-1548247416-ec66f4900b2e_eqk3ka.jpg",
       albumId: 1,

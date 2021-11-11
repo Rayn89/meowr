@@ -66,13 +66,13 @@ const EditImageForm = ({image}) => {
           value={imageUrl}
           onChange={updateImageUrl}
         /> */}
-        <label className="edit-labels">Album Number</label>
+        {/* <label className="edit-labels">Album Number</label>
         <input
           type="number"
           placeholder="Album"
           value={albumId}
           onChange={updateAlbum}
-        />
+        /> */}
         {/* <select onChange={updateType} value={type}>
           {pokeTypes.map((type) => (
             <option key={type}>{type}</option>

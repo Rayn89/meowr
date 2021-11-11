@@ -71,13 +71,13 @@ const handleSubmit = async (e) => {
           value={imageUrl}
           onChange={updateImageUrl}
         />
-        <label>Album Number</label>
+        {/* <label>Album Number</label>
         <input
           type="number"
           placeholder="Album"
           value={albumId}
           onChange={updateAlbum}
-        />
+        /> */}
         <button type="submit">Add Image</button>
         <button type="button" onClick={handleCancelClick}>
           Cancel
