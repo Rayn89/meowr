@@ -1,6 +1,6 @@
 .add-image-container {
     display: flex;
-    height: 90vh;
+    min-height: 100vh;
     justify-content: center;
 }
 

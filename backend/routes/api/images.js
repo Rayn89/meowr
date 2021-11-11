@@ -9,12 +9,13 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth")
 
-const userId = check("userId").notEmpty().isInt({ min: 0 });
-const albumId = check("albumId").notEmpty().isInt({ min: 0 });
+const userId = check("userId").notEmpty().isInt({ min: 0 }).withMessage("Hey");
+const albumId = check("albumId").notEmpty().isInt({ min: 0 }).withMessage("yeah");
 const imageUrl = check("imageUrl")
   .notEmpty()
-  .isURL({ require_protocol: false, require_host: false });
-const content = check("content").notEmpty();
+  .isURL({ require_protocol: false, require_host: false })
+  .withMessage("Please enter valid image URL.");
+const content = check("content").notEmpty().isLength({min:1, max:20}).withMessage("Title must be between 1 to 20 characters");
 
 const imageNotFoundError = (id) => {
   const err = Error("Image not found");
@@ -25,17 +26,14 @@ const imageNotFoundError = (id) => {
 };
 
 const validateCreate = [
-    userId,
-    albumId,
+    // userId,
+    // albumId,
     imageUrl,
     content,
     handleValidationErrors,
 ];
 
 const validateUpdate = [
-    userId, 
-    albumId, 
-    imageUrl, 
     content, 
     handleValidationErrors
 ];
@@ -50,18 +48,6 @@ router.get(
   })
 );
 
-// router.get(
-//   "/addImage",
-//   requireAuth,
-//   csrfProtection,
-//   asyncHandler(async (req, res) => {
-//     const image = Image.build();
-//     res.render("question-ask", {
-//       question,
-//       csrfToken: req.csrfToken(),
-//     });
-//   })
-// );
 
 router.get(
   "/:id",
@@ -93,7 +79,7 @@ router.put(
   asyncHandler(async function (req, res) {
 
       const imageId = parseInt(req.params.id, 10);
-      const image = await Image.findByPk(imageId);
+      const image = await Image.findByPk(imageId, {include:db.User, required: true});
 
       const { userId, albumId, imageUrl, content } = req.body;
 

@@ -11,43 +11,42 @@ const EditImageForm = ({image}) => {
 
   const [content, setContent] = useState("");
   const [albumId, setAlbumId] = useState(1);
-//   const [imageUrl, setImageUrl] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const updateContent = (e) => setContent(e.target.value);
-//   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateAlbum = (e) => setAlbumId(e.target.value);
 
-  //   useEffect(() => {
-  //     dispatch(getPokemonTypes());
-  //   }, [dispatch]);
 
-  //   useEffect(() => {
-  //     if (pokeTypes.length && !type) {
-  //       setType(pokeTypes[0]);
-  //     }
-  //   }, [pokeTypes, type]);
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const payload = {
-      id: image.id,
-      userId: sessionUser,
-      content,
-      imageUrl: image.imageUrl,
-      albumId,
-    };
-    dispatch(updateImage(payload));
-    history.push(`/images`);
-  };
+  setErrors([]);
+  const updated = await dispatch(
+    updateImage({ userId: sessionUser, id: image.id, content, albumId })
+  ).catch(async (res) => {
+    const data = await res.json();
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+  });
+  if (updated) {
+    history.push("/images");
+  }
+};
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    // hideForm();
+    history.push('/images')
   };
 
   return (
     <section className="edit-image-container">
       <form className="edit-image-form" onSubmit={handleSubmit}>
+        <ul className="error-list">
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
         <label>Image Name</label>
         <input
           type="text"
