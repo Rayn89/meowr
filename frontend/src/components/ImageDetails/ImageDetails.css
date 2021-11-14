@@ -3,16 +3,18 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
+    background: #1F2833;
 }
 
 .image-detail {
     margin-top: 30px;
-    border: 1px solid black;
+    border: 1px solid #45A29E;
     border-radius: 10px;
 }
 
 .details-header {
     margin-top: 75px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
+    color: white;
 }

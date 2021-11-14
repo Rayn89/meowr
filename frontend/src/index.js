@@ -7,7 +7,8 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
-import * as imageActions from "./store/imageStore"
+import * as imageActions from "./store/imageStore";
+import * as commentActions from "./store/commentStore"
 
 const store = configureStore();
 
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
   window.imageActions = imageActions;
+  window.commentActions = commentActions;
 }
 
 function Root() {

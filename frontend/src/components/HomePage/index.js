@@ -12,7 +12,7 @@ function HomePage() {
     <div className="homepage-container">
       <div className="homepage-writing">
         <h2 className="homepage-header">
-          Find your inspiration right <span className="meow">meow</span>.
+          Find your inspiration right <span className="meow"> meow.</span>
         </h2>
         <h3 className="homepage-info">Join the Meowr community,</h3>
         <h2 className="homepage-info">

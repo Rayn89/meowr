@@ -11,13 +11,13 @@ const AddImageForm = () => {
   const history = useHistory();
   
   const [content, setContent] = useState("");
-  const [albumId, setAlbumId] = useState(1);
+  const [albumId] = useState(1);
   const [imageUrl, setImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
-  const updateAlbum = (e) => setAlbumId(e.target.value);
+//   const updateAlbum = (e) => setAlbumId(e.target.value);
 
 
   useEffect(() => {
