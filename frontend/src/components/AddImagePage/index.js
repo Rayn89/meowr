@@ -32,16 +32,40 @@ const AddImageForm = () => {
     setErrors(newerrors);
   }, [content, imageUrl])
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
     
-    if(errors.length === 0){
+//     if(errors.length === 0){
+//         const updated = await dispatch(
+//           addImage({ userId: sessionUser, content, imageUrl, albumId })
+//         );
+//         if(updated) history.push('/images')
+//         }
+//     }
+
+    const [displayErrors, setDisplayErrors] = useState([]);
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+
+      if (errors.length === 0) {
         const updated = await dispatch(
-          addImage({ userId: sessionUser, content, imageUrl, albumId })
+          addImage({
+            userId: sessionUser,
+            content,
+            imageUrl,
+            albumId,
+          })
         );
-        if(updated) history.push('/images')
+        if (updated) {
+        //   setComment("");
+          setDisplayErrors([]);
+          history.push("/images")
         }
-    }
+      } else {
+        setDisplayErrors(errors);
+      }
+    };
 
 
   const handleCancelClick = (e) => {
@@ -53,7 +77,7 @@ const handleSubmit = async (e) => {
     <section className="add-image-container">
       <form className="add-image-form" onSubmit={handleSubmit}>
         <ul className="error-list">
-          {errors.map((error, idx) => (
+          {displayErrors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>

@@ -27,7 +27,6 @@ export const addComment = (data) => async (dispatch) => {
 
   if (response.ok) {
     const comment = await response.json();
-    console.log(comment, "COMMENTTTTTTTT")
     dispatch(add(comment));
     return comment;
   }

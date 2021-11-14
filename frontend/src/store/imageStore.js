@@ -99,7 +99,6 @@ const imagesReducer = (state = initialState, action) => {
     }
     case ADD_COMMENT: {
         const newState = {...state}
-        console.log(action.comment, "XXXXXXX")
         if(!newState[action.comment.imageId].Comments){
             newState[action.comment.imageId].Comments = [];
         }

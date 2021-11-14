@@ -3,10 +3,11 @@
  display: flex;
  flex-wrap: wrap;
  flex-direction: row;
- margin-bottom: 7.7rem;
+ margin-bottom: 2.7rem;
  margin-top: 7.7rem;
  justify-content: center;
- 
+ margin-left: 7rem;
+ margin-right: 7rem;
 }
 
 .image-square:hover{
