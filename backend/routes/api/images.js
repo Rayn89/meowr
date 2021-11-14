@@ -57,7 +57,7 @@ router.get(
   "/:id",
   asyncHandler(async function (req, res, next) {
     const imageId = parseInt(req.params.id, 10)
-    const image = await Image.findByPk(req.params.id, {include:[{model:db.User,required: true},{model:db.Comment, include:db.User, required: true}]});
+    const image = await Image.findByPk(req.params.id, {include:[{model:db.User,required: true},{model:db.Comment, include:db.User}]});
     if(image){
     return res.json(image);
     }else{
