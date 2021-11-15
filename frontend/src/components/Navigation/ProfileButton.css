@@ -9,11 +9,16 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
-    background: rgba(0, 0, 0, 0.201);
+    background: white;
+    align-items: center;
 }
 
 .profileopen-button {
     margin-right: 10px;
+    width: 40px;
+    height: 30px;
+    background: #66FcF1;
+    border-radius: 10px;
 }
 
 .loggedin-buttons {
@@ -22,4 +27,14 @@
     flex-direction: column;
     height: auto;
     /* position: relative; */
+}
+
+.dropdown-words {
+    margin-top: 5px;
+    border-bottom: 1px solid black;
+    color: black;
+}
+
+.profile-button {
+    margin-top: 15px;
 }

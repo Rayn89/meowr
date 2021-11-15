@@ -13,6 +13,7 @@
     border-radius: 10px;
     margin-bottom: 5px;
     margin-top: 10px;
+    background: #45A29E
 }
 
 .edit-labels {
@@ -23,5 +24,21 @@
 .error-list {
     background: rgba(255, 0, 0, 0.447);
     border-radius: 10px;
+}
 
+.edit-image-header {
+    justify-content: center;
+    display: flex;
+}
+
+.edit-image-div {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+
+}
+
+.edit-image-buttons {
+    display: flex;
+    justify-content: center;
 }

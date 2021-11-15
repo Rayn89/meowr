@@ -32,7 +32,7 @@
 }
 
 .error-list {
-    background: rgba(220, 20, 60, 0.468);
+    background: #66FCF1;
     /* border: 1px solid red; */
     /* margin-bottom: 1rem; */
 }
@@ -54,13 +54,13 @@
 .login-button {
     width: 75%;
     margin-top: 5px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background: white;
     color: white;
 }
 
 .login-button:hover {
-    background: darkblue;
+    background: #1F2833;
 }
 
 .login-header {

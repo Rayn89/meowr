@@ -3,27 +3,34 @@
  display: flex;
  flex-wrap: wrap;
  flex-direction: row;
- margin-bottom: 7.7rem;
+ margin-bottom: 2.7rem;
  margin-top: 7.7rem;
  justify-content: center;
+ margin-left: 7rem;
+ margin-right: 7rem;
+}
+
+.image-square:hover{
+    transform: scale(1.1);
 }
 
 .image-square {
-
     height: 200px;
     width: 200px;
     margin: 5px;
-    border: 1px solid black;
+    border: 1px solid #45A29E;
     border-radius: 10px;
+    transition: all 0.5s ease-in-out;
 }
 
 .imagepage-container {
     min-height: 100vh;
+    background: #1F2833;
 
 }
 
 .innerimage-container {
-    border: 1px solid black;
+    border: 1px solid #45A29E;
     margin-top: 100px;
     margin-bottom: 100px;
 }
@@ -33,6 +40,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    text-decoration: none;
 
 }
 
@@ -58,9 +66,17 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    margin-right: 10px;
 }
 
 .image-content {
     display: flex;
     justify-content: center;
+    text-decoration: none;
+}
+
+.image-content-word {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
 }

@@ -37,7 +37,7 @@
     border: 1px solid transparent;
     padding: 5px;
     border-radius: 10px;
-    color: white;
+    color: #66FcF1;
 }
 
 .loginbutton {
@@ -46,7 +46,7 @@
     border: 1px solid transparent;
     padding: 5px;
     border-radius: 10px;
-    background: white;
+    background: #66FcF1;
     color: black;
 }
 
@@ -62,18 +62,22 @@
 
 .homepage-button {
     background: transparent;
-    font-size: 25px;
+    font-size: 35px;
     color: white;
 }
 
 .cat-images-link {
     text-decoration: none;
-    color: black;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid #66FcF1;
     border-radius: 10px;
-    padding: 10px;
-    background: white;
+    padding: 10px 0px 10px 0px;
+    background: transparent;
     margin-left: 25px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .meow-cats {
@@ -83,8 +87,13 @@
 .user-name {
     display: flex;
     position: relative;
+    justify-content: center;
+    color: white;
 }
 
 .user-name-name {
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
 }

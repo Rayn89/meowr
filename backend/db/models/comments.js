@@ -1,10 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('Comment', {
-    userId: DataTypes.INTEGER,
-    imageId: DataTypes.INTEGER,
-    comment: DataTypes.STRING
-  }, {});
+  const Comment = sequelize.define(
+    "Comment",
+    {
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      imageId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      comment: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {}
+  );
   Comment.associate = function(models) {
     Comment.belongsTo(models.User, { foreignKey: "userId" });
     Comment.belongsTo(models.Image, { foreignKey: "imageId" });

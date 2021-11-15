@@ -1,6 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { Image } = require("../../db/models");
+
 const db = require("../../db/models");
 
 const router = express.Router();
@@ -55,7 +56,8 @@ router.get(
 router.get(
   "/:id",
   asyncHandler(async function (req, res, next) {
-    const image = await Image.findByPk(req.params.id, {include:db.User, required: true});
+    const imageId = parseInt(req.params.id, 10)
+    const image = await Image.findByPk(req.params.id, {include:[{model:db.User,required: true},{model:db.Comment, include:db.User}]});
     if(image){
     return res.json(image);
     }else{
@@ -82,7 +84,11 @@ router.put(
   asyncHandler(async function (req, res) {
 
       const imageId = parseInt(req.params.id, 10);
-      const image = await Image.findByPk(imageId, {include:db.User, required: true});
+      const image = await Image.findByPk(
+        imageId,
+        { include: db.User, required: true },
+        { include: db.Comment, required: true }
+      );
 
       const { userId, albumId, imageUrl, content } = req.body;
 

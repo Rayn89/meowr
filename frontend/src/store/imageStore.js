@@ -1,8 +1,9 @@
 import { csrfFetch } from "./csrf";
-
+// import { LOAD_COMMENTS } from "./commentStore"
 export const LOAD_IMAGES = "images/loadImages";
 export const ADD_ONE_IMAGE = "images/addOneImage";
 export const REMOVE_IMAGE = "items/REMOVE_IMAGE";
+const ADD_COMMENT = "comments/ADD_COMMENT";
 
 const load = (images) => ({
   type: LOAD_IMAGES,
@@ -43,7 +44,6 @@ export const addImage = (image) => async (dispatch) => {
 
 export const getOneImage = (id) => async (dispatch) => {
   const response = await csrfFetch(`/api/images/${id}`);
-
   if (response.ok) {
     const image = await response.json();
     dispatch(addOneImage(image));
@@ -96,6 +96,14 @@ const imagesReducer = (state = initialState, action) => {
       const newState = { ...state };
       delete newState[action.payload];
       return newState;
+    }
+    case ADD_COMMENT: {
+        const newState = {...state}
+        if(!newState[action.comment.imageId].Comments){
+            newState[action.comment.imageId].Comments = [];
+        }
+        newState[action.comment.imageId].Comments?.push(action.comment)
+        return newState;
     }
     default:
       return state;

@@ -40,7 +40,7 @@ function DisplayImages() {
                   alt=""
                 />
                 <div className="image-content">
-                  <p>{image.content}</p>
+                  <p className="image-content-word">{image.content}</p>
                 </div>
               </div>
             </NavLink>
