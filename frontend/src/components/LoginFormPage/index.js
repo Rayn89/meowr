@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -10,19 +10,52 @@ function LoginFormPage() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+    const [displayErrors, setDisplayErrors] = useState([]);
+
+
+    useEffect(() => {
+      let newerrors = [];
+
+      if (credential.length <= 0) {
+        newerrors.push("Please enter a valid Username");
+      }
+      if (password.length < 6) {
+        newerrors.push("Password must be at least 6 characters long");
+      }
+      setErrors(newerrors);
+    }, [credential, password]);
 
   if (sessionUser) return <Redirect to="/images" />;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setErrors([]);
+  //   return dispatch(sessionActions.login({ credential, password })).catch(
+  //     async (res) => {
+  //       const data = await res.json();
+  //       if (data && data.errors) setErrors(data.errors);
+  //     }
+  //   );
+  // };
+
+
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+
+          if (errors.length === 0) {
+            const updated = await dispatch(
+              sessionActions.login({
+                credential,
+                password,
+              })
+            );
+            if (updated) {
+              setDisplayErrors([]);
+            }
+          } else {
+            setDisplayErrors(errors);
+          }
+        };
 
 
   return (
@@ -31,7 +64,7 @@ function LoginFormPage() {
         <h2 className="login-header">Please Log-in</h2>
         <form onSubmit={handleSubmit} className="form-style">
           <ul className="error-list">
-            {errors.map((error, idx) => (
+            {displayErrors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
           </ul>
@@ -41,7 +74,7 @@ function LoginFormPage() {
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
-              required
+              // required
               className="form-input"
             />
           </label>
@@ -51,7 +84,7 @@ function LoginFormPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
+              // required
               className="form-input"
             />
           </label>

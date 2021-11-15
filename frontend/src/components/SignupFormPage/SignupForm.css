@@ -75,3 +75,9 @@
 .signup-button-main:hover {
     background: #1F2833;
 }
+
+.error-list {
+    background: #66FCF1;
+    /* border: 1px solid red; */
+    /* margin-bottom: 1rem; */
+}
