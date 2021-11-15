@@ -1,5 +1,3 @@
-# react-redux-solo-main
-
 # Meowr #
 
 Meowr, a Flickr clone, is an application that allows users to publicly post images of their cats, allowing other users to leave comments on their pictures. 
