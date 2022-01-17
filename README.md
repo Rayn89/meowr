@@ -7,6 +7,11 @@ Meowr, a Flickr clone, is an application that allows users to publicly post imag
 <h4> Documentation: <a href="https://github.com/Rayn89/react-redux-solo-main/wiki/MVP-Feature-List">Meowr Feature List</a></h4>
 <h4> Documentation: <a href="https://github.com/Rayn89/react-redux-solo-main/wiki/Database-Schema">Meowr Database Schema</a></h4>
 
+## Splast Page ##
+
+![splash page](https://cdn.discordapp.com/attachments/920350784925892621/932695228652077106/Screen_Shot_2022-01-17_at_11.57.36_AM.png)
+
+
 ### Features ###
 
 * Sign-up and login with credentials
