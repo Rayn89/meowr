@@ -60,14 +60,17 @@
 
 .login-button {
     width: 75%;
-    margin-top: 5px;
+    margin-top: 10px;
     /* border-radius: 10px; */
     /* background: white; */
     color: white;
+    height: 2rem;
+    border-radius: 10px;
 }
 
 .login-button:hover {
     background: #1F2833;
+    cursor: pointer;
 }
 
 .login-header {

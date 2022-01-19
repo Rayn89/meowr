@@ -73,14 +73,18 @@
 
 .signup-button-main {
     width: 75%;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     /* border-radius: 10px; */
     background: #C5C6C7;
     color: white;
+    height: 2rem;
+    border-radius: 10px;
 }
 
 .signup-button-main:hover {
     background: #1F2833;
+    cursor: pointer;
 }
 
 .error-list {

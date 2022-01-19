@@ -77,7 +77,10 @@
     width: 75px;
     display: flex;
     justify-content: center;
-    
+}
+
+.cat-images-link:hover{
+    cursor: pointer;
 }
 
 .meow-cats {
