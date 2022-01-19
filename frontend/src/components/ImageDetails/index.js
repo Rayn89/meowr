@@ -85,9 +85,11 @@ const imageComments = images[id]?.Comments?.map((comment) => {
       <div className="image-and-comments">
         <h2 className="details-header">{images[id]?.content}</h2>
         <img className="image-detail" src={images[id]?.imageUrl} alt="" />
-        <p>Posted by: {images[id].User?.username}</p>
+        <div className="posted-delete">
+          Posted by: {images[id].User?.username}
+          {deletebutton}
+        </div>
         {content}
-        {deletebutton}
       </div>
       <div className="scroll-comments">
         <h2 className="comments-header">Comments</h2>
@@ -98,18 +100,5 @@ const imageComments = images[id]?.Comments?.map((comment) => {
     </div>
   );
 };
-
-        {
-          /* {images[id]?.Comments?.map((comment) => (
-          <div className="main-comment-box" key={comment.id}>
-            <li className="display-comments" key={comment.id}>
-              {comment.comment}
-              <button onClick={() => handleCommentDelete(comment.id)}>
-                Delete
-              </button>
-            </li>
-          </div>
-        ))} */
-        }
 
 export default ImageDetails;

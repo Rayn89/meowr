@@ -100,3 +100,9 @@
     justify-content: center;
     margin-top: 3px;
 }
+
+@media screen and (max-width: 600px){
+    .nav-bar-container{
+    flex-direction: column;
+    }
+}
