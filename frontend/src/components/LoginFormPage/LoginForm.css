@@ -31,22 +31,29 @@
     /* justify-content: space-around; */
 }
 
-.error-list {
-    background: #66FCF1;
-    /* border: 1px solid red; */
-    /* margin-bottom: 1rem; */
+.error-list-login {
+    background: #66FCf1;
+    margin-top: -1rem;
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 10px;
 }
 
  .form-input {
     margin-top: 5px;
     display: flex;
     align-items: center; 
+    width: 100%;
+    border: none;
+    box-shadow: 3px 3px 10px #9b9b9b;
+    height: 1.5rem;
  } 
 
 .form-labels {
     margin: 10px;
     display: flex;
     flex-direction: column;
+    width: 15rem;
     /* justify-content: center; */
     align-items: center;
 }
@@ -64,5 +71,5 @@
 }
 
 .login-header {
-    margin-bottom: 2rem;
+    /* margin-bottom: 1rem; */
 }
