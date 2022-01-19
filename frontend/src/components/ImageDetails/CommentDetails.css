@@ -14,6 +14,8 @@
     align-items: center;
     margin-top: 15px;
     margin-bottom: 125px;
+    height: 80vh;
+    overflow: scroll;
 }
 
 .main-comment-box {
@@ -22,7 +24,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-    width: 60vw;
+    width: 40vw;
     display: flex;
     background: white;
 }

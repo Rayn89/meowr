@@ -1,11 +1,16 @@
 .image-detail-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
     /* margin-bottom: 200px; */
     background: #1F2833;
 }
+
+/* .image-and-comments {
+    display: flex;
+} */
 
 .image-detail {
     margin-top: 30px;
