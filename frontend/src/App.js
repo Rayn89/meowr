@@ -10,6 +10,7 @@ import FooterPage from "./components/FooterPage";
 import ImagesPage from "./components/ImagesPage/ImagesPage"
 import AddImageForm from './components/AddImagePage'
 import ImageDetails from "./components/ImageDetails";
+import ProfilePage from "./components/ProfilePage/profilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/images/:id">
             <ImageDetails />
+          </Route>
+          <Route path="/user">
+            <ProfilePage />
           </Route>
         </Switch>
       )}

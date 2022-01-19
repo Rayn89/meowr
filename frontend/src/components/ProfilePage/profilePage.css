@@ -1,0 +1,16 @@
+.header1{
+    height: 100vh;
+    padding-top: 100px;
+}
+
+.user-posts-images-container{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    
+}
+
+.user-posts-images{
+    height: 100px;
+    width: 100px;    
+}
