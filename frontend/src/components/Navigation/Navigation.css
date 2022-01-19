@@ -104,5 +104,12 @@
 @media screen and (max-width: 600px){
     .nav-bar-container{
     flex-direction: column;
+    /* background-color: red; */
+    height: fit-content;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+    }
+    .nav-bar-li{
+        flex-direction: column;
     }
 }
