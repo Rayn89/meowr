@@ -12,8 +12,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 1.8rem;
     margin-bottom: 125px;
+    height: 80vh;
+    overflow: auto;
+    border: 1px solid #45A29E;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .main-comment-box {
@@ -22,7 +27,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-    width: 60vw;
+    width: 80%;
     display: flex;
     background: white;
 }

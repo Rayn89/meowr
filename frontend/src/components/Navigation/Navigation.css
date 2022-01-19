@@ -3,7 +3,7 @@
     height: 3.5rem;
     display: flex;
     justify-content: space-between;
-    width:100%;
+    width:100vw;
     text-decoration: none;
     align-items: center;
     font-size: 20px;
@@ -77,7 +77,10 @@
     width: 75px;
     display: flex;
     justify-content: center;
-    
+}
+
+.cat-images-link:hover{
+    cursor: pointer;
 }
 
 .meow-cats {
@@ -96,4 +99,10 @@
     display: flex;
     justify-content: center;
     margin-top: 3px;
+}
+
+@media screen and (max-width: 600px){
+    .nav-bar-container{
+    flex-direction: column;
+    }
 }

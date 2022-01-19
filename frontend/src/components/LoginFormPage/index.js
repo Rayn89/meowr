@@ -10,7 +10,7 @@ function LoginFormPage() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-    const [displayErrors, setDisplayErrors] = useState([]);
+  const [displayErrors, setDisplayErrors] = useState([]);
 
 
     useEffect(() => {
@@ -48,7 +48,12 @@ function LoginFormPage() {
                 credential,
                 password,
               })
-            );
+            ).catch(
+            async (res) => {
+              const data = await res.json();
+              if (data && data.errors) setDisplayErrors(data.errors);
+            }
+          );
             if (updated) {
               setDisplayErrors([]);
             }
@@ -63,11 +68,11 @@ function LoginFormPage() {
       <div className="inner-container">
         <h2 className="login-header">Please Log-in</h2>
         <form onSubmit={handleSubmit} className="form-style">
-          <ul className="error-list">
+          <div>
             {displayErrors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <div className="error-list-login" key={idx}>{error}</div>
             ))}
-          </ul>
+          </div>
           <label className="form-labels">
             Username or Email
             <input
@@ -91,7 +96,15 @@ function LoginFormPage() {
           <button className="login-button" type="submit">
             Log In
           </button>
-          <button className="login-button" onClick={() => {setCredential('Demo-lition'); setPassword('password');}}>Demo User</button>
+          <button
+            className="login-button"
+            onClick={() => {
+              setCredential("Demo-lition");
+              setPassword("password");
+            }}
+          >
+            Demo User
+          </button>
         </form>
       </div>
     </div>

@@ -26,7 +26,7 @@
 .imagepage-container {
     min-height: 100vh;
     background: #1F2833;
-
+    width: 100vw;
 }
 
 .innerimage-container {

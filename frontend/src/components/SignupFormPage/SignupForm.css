@@ -39,16 +39,23 @@
     /* justify-content: space-around; */
 }
 
-.error-list {
+.error-list-signup {
     background: #66FCf1;
-    /* border: 1px solid red; */
-    /* margin-bottom: 1rem; */
+    margin-top: 1rem;
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
 }
 
- .form-input {
+ .form-input-signup {
     margin-top: 5px;
     display: flex;
     align-items: center; 
+    width: 100%;
+    border: none;
+    box-shadow: 3px 3px 10px #9b9b9b;
+    height: 1.5rem;
  } 
 
 .form-labels {
@@ -66,14 +73,18 @@
 
 .signup-button-main {
     width: 75%;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     /* border-radius: 10px; */
     background: #C5C6C7;
     color: white;
+    height: 2rem;
+    border-radius: 10px;
 }
 
 .signup-button-main:hover {
     background: #1F2833;
+    cursor: pointer;
 }
 
 .error-list {
