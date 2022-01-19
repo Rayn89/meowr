@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
-// import LogoutButton from "../auth/LogoutButton";
+import * as sessionActions from "../../store/session";
 import "./profilePage.css";
 import { getImages } from "../../store/imageStore";
 
@@ -54,27 +54,36 @@ function ProfilePage() {
 //     await dispatch(sessionStore.thunk_getAllUsers());
 //   };
 
+
   useEffect(() => {
     dispatch(getImages());
   }, [dispatch]);
+  
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+        history.push("/images");
+    };
 
   return (
     <>
       <div className="header1">
         <h1>{user.username}</h1>
         <div className="user-posts-images-container">
-            {imageList &&
+          {imageList &&
             imageList?.map((post) => (
-                <img
+              <img
                 onClick={() => history.push(`/posts/${post.id}`)}
                 key={post?.id}
                 className="user-posts-images"
                 src={post?.imageUrl}
                 alt=""
-                
-                />
+              />
             ))}
         </div>
+        <button className="profile-button" onClick={logout}>
+          Log Out
+        </button>
       </div>
       {/* <div className="userInfo-container">
             <div className="userInfo-stats-container">
