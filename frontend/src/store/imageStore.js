@@ -10,12 +10,10 @@ const load = (images) => ({
   images,
 });
 
-const addOneImage = (payload) => {
-  return {
+const addOneImage = (image2) => ({
     type: ADD_ONE_IMAGE,
-    payload,
-  };
-};
+    payload: image2,
+});
 
 const remove = (id) => ({
   type: REMOVE_IMAGE,
@@ -28,18 +26,27 @@ export const getImages = () => async (dispatch) => {
   dispatch(load(images));
 };
 
-export const addImage = (image) => async (dispatch) => {
-  const response = await csrfFetch("/api/images/addimage", {
+export const addImage = (image2) => async (dispatch) => {
+  console.log("REQ BODY ===========>");
+  const { userId, image, content, albumId } = image2;
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("content", content);
+  formData.append("albumId", albumId);
+  if (image) formData.append("image", image);
+  
+
+  const response = await csrfFetch("/api/images/addimage/", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(image),
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
   });
 
-  if (response.ok) {
     const data = await response.json();
-    dispatch(addOneImage(data));
-    return data;
-  }
+    dispatch(addOneImage(data.image2));
+    return data.image2
 };
 
 export const getOneImage = (id) => async (dispatch) => {
@@ -90,7 +97,7 @@ const imagesReducer = (state = initialState, action) => {
       return newState;
     }
     case ADD_ONE_IMAGE:
-      newState = { ...state, [action.payload.id]: action.payload };
+      newState = { ...state, [action.payload?.id]: action.payload };
       return newState;
     case REMOVE_IMAGE: {
       const newState = { ...state };
