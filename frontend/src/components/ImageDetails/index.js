@@ -52,10 +52,12 @@ const imageComments = images[id]?.Comments?.map((comment) => {
       <div className="main-comment-box" key={comment.id}>
         <li className="display-comments" key={comment.id}>
           {comment.comment}
+          <div className="posted-delete">
           <p className="posted-by">Posted by: {comment.User?.username}</p>
-          <button onClick={() => handleCommentDelete(comment.id)}>
+          <button  className="comment-buttons" onClick={() => handleCommentDelete(comment.id)}>
             Delete
           </button>
+          </div>
         </li>
       </div>
     );

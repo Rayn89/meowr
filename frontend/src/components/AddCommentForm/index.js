@@ -71,24 +71,26 @@ const handleSubmit = async (e) => {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>Post Comment</label>
+        {/* <label>Post Comment</label> */}
         <input
+          className="comment-input"
           type="text"
           placeholder="Comment"
           value={comment}
           onChange={updateComment}
         />
-        {/* <label>Album Number</label>
-        <input
-          type="number"
-          placeholder="Album"
-          value={albumId}
-          onChange={updateAlbum}
-        /> */}
-        <button type="submit">Add Comment</button>
-        <button type="button" onClick={handleCancelClick}>
+        <div>
+        <button className="web-button" type="submit">
+          Submit
+        </button>
+        <button
+          className="web-button"
+          type="button"
+          onClick={handleCancelClick}
+        >
           Cancel
         </button>
+        </div>
       </form>
     </section>
   );
