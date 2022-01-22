@@ -39,9 +39,30 @@ export const deleteComment = (id) => async (dispatch) => {
 
   if (response.ok) {
     // const image = await response.json();
-    dispatch(removeComment(id));
+    // dispatch(removeComment(id));
   }
 };
+
+export const editComment =
+  ({ commentId, comment, userId, imageId }) =>
+  async (dispatch) => {
+    const res = await csrfFetch(`/api/comments/${commentId}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        commentId,
+        comment,
+        userId,
+        imageId
+      }),
+    });
+
+  if (res.ok) {
+
+  }
+  };
 
 
 

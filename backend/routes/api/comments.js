@@ -53,27 +53,25 @@ router.get(
 
 router.put(
   "/:id",
-  validateUpdate,
   requireAuth,
   asyncHandler(async function (req, res) {
-    const imageId = parseInt(req.params.id, 10);
-    const image = await Image.findByPk(
-      imageId,
-      { include: db.User, required: true },
-      { include: db.Comment, required: true }
+    const findCommentId = parseInt(req.params.id, 10);
+    const comment1 = await db.Comment.findByPk(
+      findCommentId,
+      // { include: db.User, required: true },
+      // { include: db.Comment, required: true }
     );
 
-    const { userId, albumId, imageUrl, content } = req.body;
+    const { userId ,imageId, comment, commentId } = req.body;
 
-    const updatedImage = {
-      userId,
-      albumId,
-      imageUrl,
-      content,
+    const updatedComment = {
+      imageId,
+      comment,
+      userId
     };
 
-    const newImage = await image.update(updatedImage);
-    return res.json(image);
+    const newImage = await comment1.update(updatedComment);
+    return res.json(newImage);
   })
 );
 
