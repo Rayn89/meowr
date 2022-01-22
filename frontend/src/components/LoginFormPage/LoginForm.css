@@ -3,15 +3,17 @@
 }
 
 .loginform-container {
+    /* visibility: hidden; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    background: #1F2833;
+    height: 100px;
+    width: 0px;
+    /* min-height: 100vh; */
 }
 
 .inner-container {
-    margin-top: 7rem;
+    /* margin-top: 7rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +22,8 @@
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
+    color: black;
+    /* height: 100px; */
 }
 
 .form-style {
@@ -54,18 +58,22 @@
     display: flex;
     flex-direction: column;
     width: 15rem;
+    color: black;
     /* justify-content: center; */
     align-items: center;
 }
 
 .login-button {
     width: 75%;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* border-radius: 10px; */
     /* background: white; */
     color: white;
     height: 2rem;
     border-radius: 10px;
+    /* font-size: 1rem; */
+    /* background: white; */
+    margin-top: 5px;
 }
 
 .login-button:hover {

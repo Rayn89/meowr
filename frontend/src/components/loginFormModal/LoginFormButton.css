@@ -1,0 +1,14 @@
+.login-button-modal{
+    width: 5rem;
+    color: black;
+    background: white;
+    border: none;
+    height: 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.login-button-modal:hover{
+    cursor: pointer;
+}

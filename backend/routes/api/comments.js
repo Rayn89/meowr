@@ -51,25 +51,30 @@ router.get(
   })
 );
 
-// router.get(
-//   "/:id",
-//   asyncHandler(async function (req, res, next) {
-//     const imageId = parseInt(req.params.id, 10);
-//     const image = await Image.findByPk(req.params.id, {
-//       include: db.User,
-//       required: true,
-//     });
-//     const comments = await db.Comment.findAll({
-//       include:db.User,
-//       where: image
-//     })
-//     if (image) {
-//       return res.json(image);
-//     } else {
-//       next(imageNotFoundError(req.params.id));
-//     }
-//   })
-// );
+router.put(
+  "/:id",
+  requireAuth,
+  asyncHandler(async function (req, res) {
+    const findCommentId = parseInt(req.params.id, 10);
+    const comment1 = await db.Comment.findByPk(
+      findCommentId,
+      
+      // { include: db.User, required: true },
+      // { include: db.Comment, required: true }
+    );
+
+    const { userId ,imageId, comment, commentId } = req.body;
+
+    const updatedComment = {
+      imageId,
+      comment,
+      userId
+    };
+
+    const newImage = await comment1.update(updatedComment);
+    return res.json(newImage);
+  })
+);
 
 router.post(
   "/",
@@ -85,30 +90,6 @@ router.post(
   })
 );
 
-// router.put(
-//   "/:id",
-//   validateUpdate,
-//   requireAuth,
-//   asyncHandler(async function (req, res) {
-//     const imageId = parseInt(req.params.id, 10);
-//     const image = await Image.findByPk(imageId, {
-//       include: db.User,
-//       required: true,
-//     });
-
-//     const { userId, albumId, imageUrl, content } = req.body;
-
-//     const updatedImage = {
-//       userId,
-//       albumId,
-//       imageUrl,
-//       content,
-//     };
-
-//     const newImage = await image.update(updatedImage);
-//     return res.json(image);
-//   })
-// );
 
 router.delete(
   "/:id",

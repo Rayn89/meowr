@@ -26,26 +26,31 @@ function DisplayImages() {
       <div className="button-add">{content}</div>
       <div className="img-wrapper">
         {images.map((image) => (
-          <div className="main-image-box" key={image.id}>
-            <NavLink
-              className="display-images"
-              key={image.id}
-              to={`/images/${image.id}`}
-            >
-              <div>
-                <img
-                  className="image-square"
-                  key={image.id}
-                  src={image.imageUrl}
-                  alt=""
-                />
-                <div className="image-content">
-                  <p className="image-content-word">{image.content}</p>
-                </div>
+          <>
+            {image?.content ? (
+              <div key={image?.id} className="main-image-box">
+                <NavLink
+                  key={image?.id}
+                  className="display-images"
+                  to={`/images/${image?.id}`}
+                >
+                  <div>
+                    <img
+                      className="image-square"
+                      src={image?.imageUrl}
+                      alt=""
+                    />
+                    <div className="image-content">
+                      <p className="image-content-word">{image?.content}</p>
+                    </div>
+                  </div>
+                </NavLink>
+                <p className="posted-by-images">
+                  post by: {image?.User?.username}
+                </p>
               </div>
-            </NavLink>
-            <p>post by: {image.User?.username}</p>
-          </div>
+            ) : null}
+          </>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 .footer-bar {
     /* display: flex; */
     width: 100vw;
-    background: rgb(74, 74, 74);
+    background: rgba(0, 0, 0, 0.201);
     height: 60px;
     bottom: 0;
     position: relative;

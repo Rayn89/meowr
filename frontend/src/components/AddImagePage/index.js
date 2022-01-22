@@ -6,17 +6,17 @@ import isURL from "validator/lib/isURL";
 import "./AddImage.css"
 
 const AddImageForm = () => {
-  const sessionUser = useSelector((state) => state.session.user.id);
+  const sessionUser = useSelector((state) => state?.session?.user?.id);
   const dispatch = useDispatch();
   const history = useHistory();
   
   const [content, setContent] = useState("");
   const [albumId] = useState(1);
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImage] = useState(null);
   const [errors, setErrors] = useState([]);
 
   const updateContent = (e) => setContent(e.target.value);
-  const updateImageUrl = (e) => setImageUrl(e.target.value);
+  // const updateImageUrl = (e) => setImageUrl(e.target.value);
 //   const updateAlbum = (e) => setAlbumId(e.target.value);
 
 
@@ -25,12 +25,12 @@ const AddImageForm = () => {
     if (content.length < 1) {
       newerrors.push("Please enter a valid Title");
     }
-    if (!isURL(imageUrl)) {
-      newerrors.push("Please enter a valid Image URL");
-    }
+    // if (!isURL(imageUrl)) {
+    //   newerrors.push("Please enter a valid Image URL");
+    // }
 
     setErrors(newerrors);
-  }, [content, imageUrl])
+  }, [content])
 
 // const handleSubmit = async (e) => {
 //   e.preventDefault();
@@ -53,20 +53,24 @@ const AddImageForm = () => {
           addImage({
             userId: sessionUser,
             content,
-            imageUrl,
+            image,
             albumId,
           })
         );
         if (updated) {
-        //   setComment("");
           setDisplayErrors([]);
           history.push("/images")
         }
       } else {
         setDisplayErrors(errors);
       }
+      history.push("/images")
     };
 
+    const updateFile = (e) => {
+      const file = e.target.files[0];
+      if (file) setImage(file);
+    };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
@@ -88,13 +92,9 @@ const AddImageForm = () => {
           value={content}
           onChange={updateContent}
         />
-        <label>Image Url</label>
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={imageUrl}
-          onChange={updateImageUrl}
-        />
+        <label>
+          <input type="file" onChange={updateFile} />
+        </label>
         {/* <label>Album Number</label>
         <input
           type="number"

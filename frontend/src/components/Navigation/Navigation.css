@@ -40,7 +40,7 @@
     color: #66FcF1;
 }
 
-.loginbutton {
+/* .loginbutton {
     background: transparent;
     margin-left: 15px;
     border: 1px solid transparent;
@@ -48,7 +48,7 @@
     border-radius: 10px;
     background: #66FcF1;
     color: black;
-}
+} */
 
 .loginbutton:hover {
     box-shadow: 0 0 5px 2px rgb(0, 0, 0);;

@@ -6,17 +6,32 @@
     justify-content: center;
     /* margin-bottom: 100px; */
     margin-top: -125px;
+    
 }
 
 .add-comment-form {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 30px;
     border: 1px solid black;
     border-radius: 10px;
     height:max-content;
-    padding: 20px;
-    /* width: 15rem; */
+    padding: 10px;
+    width: 25rem;
     background: #45A29E;
+}
+
+.comment-input{
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    box-shadow: 3px 3px 10px #9b9b9b;
+    height: 1.5rem;
+    border-radius: 5px;
+}
+
+.web-button{
+    height: 1.6rem;
 }

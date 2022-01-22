@@ -21,6 +21,7 @@
     border: 1px solid #45A29E;
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
+    object-fit: cover;
 }
 
 .imagepage-container {
@@ -79,4 +80,8 @@
     color: white;
     font-size: 1.5rem;
     text-decoration: none;
+}
+
+.posted-by-images{
+    color: #45A29E;
 }

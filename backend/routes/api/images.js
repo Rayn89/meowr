@@ -1,6 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { Image } = require("../../db/models");
+const { singlePublicFileUpload, singleMulterUpload} = require("../../awsS3")
 
 const db = require("../../db/models");
 
@@ -13,12 +14,7 @@ const { requireAuth } = require("../../utils/auth")
 
 const userId = check("userId").notEmpty().isInt({ min: 0 }).withMessage("Hey");
 const albumId = check("albumId").notEmpty().isInt({ min: 0 }).withMessage("yeah");
-const imageUrl = check("imageUrl")
-//   .notEmpty()
-  .isURL({ require_protocol: false, require_host: false })
-  .withMessage("Please enter valid image URL.");
 const content = check("content")
-// .notEmpty().withMessage("Must input a title.")
 .isLength({min:1, max:20}).withMessage("Title must be between 1 to 20 characters");
 
 const imageNotFoundError = (id) => {
@@ -32,7 +28,7 @@ const imageNotFoundError = (id) => {
 const validateCreate = [
     // userId,
     // albumId,
-    imageUrl,
+    // imageUrl,
     content,
     handleValidationErrors,
 ];
@@ -57,7 +53,12 @@ router.get(
   "/:id",
   asyncHandler(async function (req, res, next) {
     const imageId = parseInt(req.params.id, 10)
-    const image = await Image.findByPk(req.params.id, {include:[{model:db.User,required: true},{model:db.Comment, include:db.User}]});
+    const image = await Image.findByPk(req.params.id, {
+      include: [
+        { model: db.User, required: true },
+        { model: db.Comment, order: [["createdAt", "DESC"]], include: db.User },
+      ],
+    });
     if(image){
     return res.json(image);
     }else{
@@ -68,11 +69,15 @@ router.get(
 
 router.post(
   "/addimage", 
-  requireAuth, 
+  requireAuth,
+  singleMulterUpload("image"), 
   validateCreate,
   asyncHandler(async function (req, res) {
-    const id = await Image.create(req.body, {include:db.User, required: true});
-    return res.json(id);
+    const { userId, albumId, content } = req.body
+    
+    const imageUrl = await singlePublicFileUpload(req.file);
+    const id = await Image.create({userId, albumId, content, imageUrl});
+    return res.json({id});
   })
 );
 
