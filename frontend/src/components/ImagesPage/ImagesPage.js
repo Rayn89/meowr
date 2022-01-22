@@ -29,11 +29,14 @@ function DisplayImages() {
           <>
             {image?.content ? (
               <div key={image?.id} className="main-image-box">
-                <NavLink className="display-images" to={`/images/${image?.id}`}>
+                <NavLink
+                  key={image?.id}
+                  className="display-images"
+                  to={`/images/${image?.id}`}
+                >
                   <div>
                     <img
                       className="image-square"
-                      key={image?.id}
                       src={image?.imageUrl}
                       alt=""
                     />
@@ -42,7 +45,9 @@ function DisplayImages() {
                     </div>
                   </div>
                 </NavLink>
-                <p className="posted-by-images">post by: {image?.User?.username}</p>
+                <p className="posted-by-images">
+                  post by: {image?.User?.username}
+                </p>
               </div>
             ) : null}
           </>

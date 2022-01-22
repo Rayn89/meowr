@@ -58,6 +58,7 @@ router.put(
     const findCommentId = parseInt(req.params.id, 10);
     const comment1 = await db.Comment.findByPk(
       findCommentId,
+      
       // { include: db.User, required: true },
       // { include: db.Comment, required: true }
     );

@@ -12,6 +12,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
+    justify-content: center;
 }
 
 .homepage-header {
@@ -33,11 +34,12 @@
 }
 
 .homepage-writing {
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 3rem;
 }
 
 .homepage-login {

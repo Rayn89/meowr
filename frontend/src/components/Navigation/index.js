@@ -19,12 +19,14 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <div className="login-signup">
-        <li className="nav-bar-li loginbutton">
-          <LoginFormModal />
-        </li>
-        <li className="nav-bar-li loginbutton">
-          <SignupFormModal />
-        </li>
+        <ul className="login-signup">
+          <li className="nav-bar-li loginbutton">
+            <LoginFormModal />
+          </li>
+          <li className="nav-bar-li loginbutton">
+            <SignupFormModal />
+          </li>
+        </ul>
       </div>
     );
   }

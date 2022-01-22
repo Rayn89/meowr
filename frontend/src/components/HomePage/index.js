@@ -2,6 +2,7 @@ import { Redirect } from "react-router-dom";
 import './HomePage.css'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import LoginFormModal from "../loginFormModal";
 
 function HomePage() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -19,9 +20,9 @@ function HomePage() {
           home to tens of pictures and over 5 active users.
         </h2>
       </div>
-      <NavLink to="/login" className="homepage-login">
-        Log In
-      </NavLink>
+      <li className="nav-bar-li loginbutton-home">
+        <LoginFormModal />
+      </li>
     </div>
   );
 }
