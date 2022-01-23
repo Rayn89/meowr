@@ -54,3 +54,17 @@ body {
     resize: none;
     overflow: scroll;
 }
+
+.image-delete{
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 0px;
+    height:fit-content;
+    margin-left: 5px;
+    color: white;
+}
+
+.image-delete:hover{
+    cursor: pointer;
+}

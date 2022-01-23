@@ -11,4 +11,6 @@
 
 .login-button-modal:hover{
     cursor: pointer;
+    color: white;
+    background: black;
 }
