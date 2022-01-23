@@ -46,7 +46,7 @@ const ImageDetails = () => {
     content = (
       <EditImageForm image={images[id]} />
     )
-    deletebutton = (<button onClick={() => handleDelete(id)}>Delete Image</button>);
+    deletebutton = (<button className="image-delete" onClick={() => handleDelete(id)}>Delete Image</button>);
     }
     
 }
@@ -95,22 +95,24 @@ const imageComments = images[id]?.Comments?.map((comment) => {
           </div>
           <div className="posted-delete">
             <p className="posted-by">Posted by: {comment.User?.username}</p>
-            <button
-              className="comment-buttons"
-              onClick={() => handleCommentDelete(comment.id)}
-            >
-              Delete
-            </button>
-            <button
-              className="single-spot-button"
-              onClick={() => {
-                setEditedComment(comment.comment);
-                setEditCommentId(comment.id);
-                setEditSelected([!editSelected[0], comment.id]);
-              }}
-            >
-              Edit
-            </button>
+            <div>
+              <button
+                className="comment-buttons"
+                onClick={() => {
+                  setEditedComment(comment.comment);
+                  setEditCommentId(comment.id);
+                  setEditSelected([!editSelected[0], comment.id]);
+                }}
+              >
+                Edit
+              </button>
+              <button
+                className="comment-buttons"
+                onClick={() => handleCommentDelete(comment.id)}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>

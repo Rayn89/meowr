@@ -85,10 +85,11 @@ const AddImageForm = () => {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>Image Name</label>
+        <h2>Add new image:</h2>
         <input
+        className="add-form-input"
           type="text"
-          placeholder="Name"
+          placeholder="Image Title"
           value={content}
           onChange={updateContent}
         />

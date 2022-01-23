@@ -39,7 +39,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .homepage-login {
@@ -68,5 +68,10 @@
     margin-left: 5px;
     /* font-weight: bold; */
     /* transition: color 2s ease; */
+}
+
+.loginbutton-home{
+    display: flex;
+    justify-content: center;
 }
 
