@@ -3,6 +3,7 @@ import './HomePage.css'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import LoginFormModal from "../loginFormModal";
+import SignupFormModal from "../signupFormModal"
 
 function HomePage() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -12,16 +13,15 @@ function HomePage() {
   return (
     <div className="homepage-container">
       <div className="homepage-writing">
-        <h2 className="homepage-header">
+        <h1 className="homepage-header">
           Find your inspiration right <span className="meow"> meow.</span>
-        </h2>
-        <h3 className="homepage-info">Join the Meowr community,</h3>
-        <h2 className="homepage-info-small">
-          home to tens of pictures and over 5 active users.
-        </h2>
+        </h1>
+        <h2 className="homepage-info">Join the Meowr community!</h2>
+        <h3 className="homepage-info">Home to tens of pictures</h3>
+        <h3 className="homepage-info-small">and over 5 active users.</h3>
       </div>
       <li className="nav-bar-li loginbutton-home">
-        <LoginFormModal />
+        <SignupFormModal />
       </li>
     </div>
   );

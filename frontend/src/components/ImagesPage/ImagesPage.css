@@ -85,3 +85,12 @@
 .posted-by-images{
     color: #45A29E;
 }
+
+@media screen and (max-width: 600px){
+    /* .img-wrapper{
+        margin-top: 12rem;
+    } */
+    .add-image-button{
+        margin-top: 8rem;
+    }
+}

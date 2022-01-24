@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
 
   if (errors.length === 0) {
     const updated = await dispatch(
-      updateImage({ userId: sessionUser, id: image.id, content, albumId })
+      updateImage({ userId: sessionUser, id: image?.id, content, albumId })
     );
     if (updated) {
     //   setContent("");
@@ -63,16 +63,18 @@ const handleSubmit = async (e) => {
   return (
     <section className="edit-image-container">
       <form className="edit-image-form" onSubmit={handleSubmit}>
+        <h3 className="edit-image-header">Edit your image</h3>
         <ul className="error-list">
           {displayErrors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
 
-        <h3 className="edit-image-header">Edit your image</h3>
+        {/* <h3 className="edit-image-header">Edit your image</h3> */}
         <div className="edit-image-div">
           {/* <label>Image Name</label> */}
           <input
+            className="form-input"
             type="text"
             placeholder="Image Title"
             value={content}
@@ -99,8 +101,14 @@ const handleSubmit = async (e) => {
           ))}
         </select> */}
           <div className="edit-image-buttons">
-            <button type="submit">Edit Image</button>
-            <button type="button" onClick={handleCancelClick}>
+            <button className="web-button2" type="submit">
+              Edit Image
+            </button>
+            <button
+              className="web-button2"
+              type="button"
+              onClick={handleCancelClick}
+            >
               Cancel
             </button>
           </div>

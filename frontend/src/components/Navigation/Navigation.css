@@ -10,6 +10,7 @@
     position: absolute;
     /* margin-bottom: 100px; */
     box-sizing: border-box;
+    top: 0px;
 }
 
 .nav-bar-ul {
@@ -111,4 +112,9 @@
     .nav-bar-li{
         flex-direction: column;
     }
+
+    .user-name{
+        margin-top: 10px;
+    }
+    
 }

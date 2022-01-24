@@ -56,7 +56,7 @@ router.get(
     const image = await Image.findByPk(req.params.id, {
       include: [
         { model: db.User, required: true },
-        { model: db.Comment, order: [["createdAt", "DESC"]], include: db.User },
+        { model: db.Comment, include: db.User },
       ],
     });
     if(image){

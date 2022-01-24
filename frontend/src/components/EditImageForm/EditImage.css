@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
 }
 
 .edit-image-form {
@@ -9,16 +10,17 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     margin-bottom: 5px;
     margin-top: 10px;
-    background: #45A29E
+    background: white;
 }
 
 .edit-labels {
     display: flex;
     align-items: center;
+
 }
 
 .error-list {
@@ -29,16 +31,33 @@
 .edit-image-header {
     justify-content: center;
     display: flex;
+    color: black;
 }
 
 .edit-image-div {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     align-items: center;
-
+    margin-top: 20px;
 }
 
 .edit-image-buttons {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.web-button2{
+    margin-left: 5px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.web-button2:hover{
+    color: white;
+    background: #1F2833;
+    cursor: pointer;
 }

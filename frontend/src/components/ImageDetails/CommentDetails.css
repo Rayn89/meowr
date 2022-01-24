@@ -66,3 +66,9 @@
 .comment-buttons:hover{
     cursor: pointer;
 }
+
+/* @media screen and (max-width: 800px){
+    .comments-container{
+        width: 80vw;
+    }
+} */
