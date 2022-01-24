@@ -112,4 +112,9 @@
     .nav-bar-li{
         flex-direction: column;
     }
+
+    .user-name{
+        margin-top: 10px;
+    }
+    
 }
