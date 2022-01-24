@@ -68,3 +68,30 @@ body {
 .image-delete:hover{
     cursor: pointer;
 }
+
+@media screen and (max-width: 800px){
+    .image-detail-container{
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        margin-top: 20rem;
+        margin-bottom: 26rem;
+        width: 100vw;
+    }
+
+    .scroll-comments{
+        margin-top: 3rem;
+        width: 80vw;
+    }
+
+    .image-and-comments{
+        width: 80vw;
+        margin-top: 22rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .image-detail-container{
+        margin-top: 15rem;
+    }
+}

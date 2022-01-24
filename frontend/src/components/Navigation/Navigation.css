@@ -10,6 +10,7 @@
     position: absolute;
     /* margin-bottom: 100px; */
     box-sizing: border-box;
+    top: 0px;
 }
 
 .nav-bar-ul {
