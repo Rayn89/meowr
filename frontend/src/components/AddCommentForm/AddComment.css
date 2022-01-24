@@ -42,10 +42,11 @@
     background: white;
     border-radius: 10px;
     padding: 5px;
+    border: none;
 }
 
 .web-button:hover{
     color: white;
-    background: #1F2833;
+    background: #66FcF1;
     cursor: pointer;
 }

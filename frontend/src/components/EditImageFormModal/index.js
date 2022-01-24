@@ -8,12 +8,12 @@ function EditImageFormModal({image}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>
+      <button className="image-delete" onClick={() => setShowModal(true)}>
         Edit Image
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditImageForm image={image}/>
+          <EditImageForm image={image} />
         </Modal>
       )}
     </>

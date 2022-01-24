@@ -73,6 +73,7 @@ const handleSubmit = async (e) => {
         <div className="edit-image-div">
           {/* <label>Image Name</label> */}
           <input
+          className="form-input"
             type="text"
             placeholder="Image Title"
             value={content}

@@ -148,9 +148,11 @@ const imageComments = images[id]?.Comments?.map((comment) => {
         <img className="image-detail" src={images[id]?.imageUrl} alt="" />
         <div className="posted-delete">
           Posted by: {images[id].User?.username}
-          {deletebutton}
+          <div>
+            {content}
+            {deletebutton}
+          </div>
         </div>
-        {content}
       </div>
       <div className="scroll-comments">
         <h2 className="comments-header">Comments</h2>
