@@ -40,6 +40,14 @@
 
 .profile-button {
     margin-top: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    background: #1F2833;
+    color: white;
+}
+
+.profile-button:hover{
+    cursor: pointer;
 }
 
 .fa-user-circle{
