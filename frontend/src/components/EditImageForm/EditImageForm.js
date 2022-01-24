@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
 
   if (errors.length === 0) {
     const updated = await dispatch(
-      updateImage({ userId: sessionUser, id: image.id, content, albumId })
+      updateImage({ userId: sessionUser, id: image?.id, content, albumId })
     );
     if (updated) {
     //   setContent("");

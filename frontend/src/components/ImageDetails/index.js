@@ -9,6 +9,7 @@ import { editComment } from "../../store/commentStore"
 import { getImages } from "../../store/imageStore";
 import { Redirect, useHistory } from "react-router-dom"
 import AddCommentForm from "../AddCommentForm"
+import EditImageFormModal from "../EditImageFormModal"
 import "./ImageDetails.css"
 import "./CommentDetails.css"
 
@@ -44,7 +45,7 @@ const ImageDetails = () => {
     )
     if(sessionUser.id === images[id]?.userId) {
     content = (
-      <EditImageForm image={images[id]} />
+      <EditImageFormModal image={images[id]} />
     )
     deletebutton = (<button className="image-delete" onClick={() => handleDelete(id)}>Delete Image</button>);
     }

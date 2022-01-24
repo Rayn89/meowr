@@ -87,7 +87,7 @@ const AddImageForm = () => {
         </ul>
         <h2>Add new image:</h2>
         <input
-        className="add-form-input"
+          className="add-form-input"
           type="text"
           placeholder="Image Title"
           value={content}
@@ -103,8 +103,14 @@ const AddImageForm = () => {
           value={albumId}
           onChange={updateAlbum}
         /> */}
-        <button type="submit">Add Image</button>
-        <button type="button" onClick={handleCancelClick}>
+        <button className="add-image-button2" type="submit">
+          Add Image
+        </button>
+        <button
+          className="add-image-button2"
+          type="button"
+          onClick={handleCancelClick}
+        >
           Cancel
         </button>
       </form>

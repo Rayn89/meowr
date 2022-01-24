@@ -15,23 +15,37 @@
     align-items: center;
     justify-content: center;
     margin-top: 30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     height:max-content;
     padding: 10px;
     width: 25rem;
-    background: #45A29E;
+    background: transparent;
 }
 
 .comment-input{
-    margin-top: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center; 
     width: 100%;
     border: none;
-    box-shadow: 3px 3px 10px #9b9b9b;
+    box-shadow: 3px 3px 10px #000000;
     height: 1.5rem;
-    border-radius: 5px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .web-button{
-    height: 1.6rem;
+    height: 2rem;
+    margin-left: 5px;
+    margin-top: 5px;
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.web-button:hover{
+    color: white;
+    background: #1F2833;
+    cursor: pointer;
 }
