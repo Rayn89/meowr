@@ -116,5 +116,9 @@
     .user-name{
         margin-top: 10px;
     }
+
+    .login-signup{
+        padding: 0px;
+    }
     
 }
